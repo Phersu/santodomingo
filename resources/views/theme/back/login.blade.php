@@ -1,69 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Login - SB Admin</title>
-        <link href="{{ asset("assets/back/css/styles.css") }}" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="bg-primary">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                <label for="inputPassword">Password</label>
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                    </div>
+  <head>
+  	<title>Login 05</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{{ asset("assets/back/login/css/style.css") }}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <div class="wrap">
+                        <div class="img" style="background-image: url({{ asset("assets/back/login/images/encabezado3.png") }});"></div>
+						<div class="login-wrap p-4 p-md-5">
+                            @if ($errors->any())
+                                <x-alert tipo="danger" :mensaje="$errors"/>
+                            @endif
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Sign In</h3>
+                                </div>
+                                <div class="w-100">
+                                    <p class="social-media d-flex justify-content-end">
+                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset("assets/back/js/datatables-simple-demo.js") }}"></script>
-    </body>
+                            <form class="signin-form" action="{{ route('login') }}" method="POST">
+                                @csrf
+                                <div class="form-group mt-3">
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                    <label class="form-control-placeholder" for="email">email</label>
+                                </div>
+                                <div class="form-group">
+                                    <input id="password-field" name="password" type="password" class="form-control" required>
+                                    <label class="form-control-placeholder" for="password">Password</label>
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                                </div>
+                                <div class="form-group d-md-flex">
+                                    <div class="w-50 text-left">
+                                        <label class="checkbox-wrap checkbox-primary mb-0">Remember Me<input type="checkbox" checked><span class="checkmark"></span></label>
+                                    </div>
+                                    <div class="w-50 text-md-right">
+                                        <a href="#">Forgot Password</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</section>
+<script src="{{ asset("assets/back/login/js/jquery.min.js") }}"></script>
+<script src="{{ asset("assets/back/login/js/popper.js") }}"></script>
+<script src="{{ asset("assets/back/login/js/bootstrap.min.js") }}"></script>
+<script src="{{ asset("assets/back/login/js/main.js") }}"></script>
+</body>
 </html>
+

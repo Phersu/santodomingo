@@ -1,12 +1,4 @@
-<footer class="py-4 bg-dark mt-auto">
-    <div class="container-fluid px-4">
-        <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Phersu 2022</div>
-            <div>
-                <a href="#">Privacy Policy</a>
-                &middot;
-                <a href="#">Terms &amp; Conditions</a>
-            </div>
-        </div>
-    </div>
+<footer class="footer text-center">
+    All Rights Reserved by Matrix-admin. Designed and Developed by <a
+        href="https://phersu.mx/">Phersu</a>.
 </footer>
